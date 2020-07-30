@@ -29,4 +29,4 @@ jobs:
       run: ./gradlew build
     
     - name: Upload S3
-      run: aws s3 cp --recursive --region ap-northeast-2 --no-sign-request ./build/libs/*.jar s3://zeze-test/build/test.jar
+      run: aws s3 cp --region ap-northeast-2 --no-sign-request ./build/libs/*.jar s3://$BUCKET/build/$GITHUB_SHA.jar
