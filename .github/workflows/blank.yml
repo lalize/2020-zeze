@@ -27,5 +27,6 @@ jobs:
 
     - name: Build with Gradle
       run: ./gradlew build
+      
     - name: Upload S3
-      run: aws s3 cp --region ap-northeast-2 --no-sign-request ./build/libs/*.jar s3://zeze-test/build/$GITHUB_SHA.jar
+      run: aws s3 cp --region ap-northeast-2 ./build/libs/*.jar s3://zeze-test/build/zeze.jar
