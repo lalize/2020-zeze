@@ -6,7 +6,7 @@ name: CI
 # events but only for the main branch
 on:
   push:
-    branches: [ dev ]
+    branches: main
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -29,4 +29,4 @@ jobs:
       run: ./gradlew build
     
     - name: Upload S3
-      run: aws s3 cp \ --recursive \ --region ap-northeast-2 \ build s3://zeze-test
+      run: aws s3 cp --recursive --region ap-northeast-2 --no-sign-request ./build/libs/*.jar s3://zeze-test
